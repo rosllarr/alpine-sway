@@ -97,7 +97,7 @@ echo "" >> ~/.profile
 ```bash
 # helix is text editor
 # fish is fish shell
-doas apk add git docker docker-cli-compose helix curl python3 chromium
+doas apk add git docker docker-cli-compose curl chromium
 ```
 
 ### Install oh-my-fish and bang-bang package
@@ -122,3 +122,15 @@ doas apk add font-noto font-noto-extra font-noto-thai
 
 2. Set Noto-font for Chromium/Chrome
 - https://support.google.com/chrome/answer/96810?hl=en&co=GENIE.Platform%3DDesktop
+
+
+### Install helix
+- install helix
+```bash
+doas apk add helix 
+```
+
+- install requirement packages for python syntax highlight
+```bash
+doas apk add python3 tree-sitter-python py3-lsp-server 
+```
