@@ -45,8 +45,17 @@ apk del wpa_supplicant
 ### Install man pages
 > **_Ref:_** https://wiki.alpinelinux.org/wiki/Alpine_Linux:FAQ#Why_don.27t_I_have_man_pages_or_where_is_the_.27man.27_command.3F
 
-- TODO: add step to install mandoc
+```bash
+apk add mandoc man-pages mandoc-apropos
+```
 
+### Install video driver
+
+- for Intel
+
+
+- for AMD
+> **_Ref:_** https://wiki.alpinelinux.org/wiki/Radeon_Video
 
 
 ## Install Desktop environment
