@@ -1,3 +1,12 @@
+## Goal
+- Pure Wayland with Sway as Window Manager
+- Use Neovim as Text Editor
+- GUI Apps running via Flatpak
+- Use Fish as Interactive Shell and ash as Default Shell
+- Manage Wireless network via iwd
+- Use doas instead of sudo
+
+
 ## Setup phrese after first boot
 > **_Remark:_** Following commands run in console as Root!
 
@@ -109,7 +118,7 @@ doas apk add git docker docker-cli-compose curl chromium
 curl https://raw.githubusercontent.com/oh-my-fish/oh-my-fish/master/bin/install | fish
 
 ### install bang-bang package
-omf install bang-bang 
+omf install bang-bang
 ```
 
 ### Display Thai font in browser
@@ -127,10 +136,10 @@ doas apk add font-noto font-noto-extra font-noto-thai
 ### Install helix
 - install helix
 ```bash
-doas apk add helix 
+doas apk add helix
 ```
 
 - install requirement packages for python syntax highlight
 ```bash
-doas apk add python3 tree-sitter-python py3-lsp-server 
+doas apk add python3 tree-sitter-python py3-lsp-server
 ```
