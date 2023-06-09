@@ -8,6 +8,7 @@
 - Use Vagrant+libvirt instead of VirtualBox (because alpine not support VirtualBox)
 - Use Alacritty terminal
 - Use Vieb browser (in flakpak) as default browser
+- Use script to automate each steps
 
 
 ## Setup phrese after first boot
