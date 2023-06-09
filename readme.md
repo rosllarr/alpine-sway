@@ -40,6 +40,20 @@ rc-service wpa_supplicant stop
 ```
 
 - TODO: add step to setup iwd
+```bash
+rc-service iwd start
+iwctl device list
+iwctl station wlan0 scan && iwctl station wlan0 get-networks
+iwctl station wlan0 connect <SSID>
+rc-update add iwd boot && rc-update add dbus boot
+
+# /etc/network/interfaces
+auto wlan0
+iface wlan0 inet dhcp
+
+rc-service networking restart
+ip a show wlan0
+```
 
 - remove wpa_supplicant
 ```bash

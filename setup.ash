@@ -43,7 +43,7 @@ if [[ $CMD -eq 0 ]]; then
 	apk add mandoc man-pages mandoc-apropos
     echo '##>> Install mandoc, man-pages, mandoc-apropos successfully <<##'
 else
-    echo '##>> mandoc is already installed <<##'
+    echo '##>> mandoc, man-pages, mandoc-apropos are already installed <<##'
 fi
 
 
