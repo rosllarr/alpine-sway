@@ -5,6 +5,7 @@
 - Use Fish as Interactive Shell and ash as Default Shell
 - Manage Wireless network via iwd
 - Use doas instead of sudo
+- Use script to automate each steps
 
 
 ## Setup phrese after first boot
