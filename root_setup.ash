@@ -49,6 +49,7 @@
 
 ## Global variables
 ME=tie
+MYHOME=/home/$ME
 
 ## Install doas
 CMD=$(apk info -vv | grep 'doas' | wc -l)
@@ -93,6 +94,20 @@ else
 	echo '##>> mesa-dri-gallium, mesa-va-gallium, intel-media-driver are already installed <<##'
 fi
 
+
+setup_env () {
+    ln -sf  ./config/home/dot_profile $MYHOME/.profile
+    ln -sf ./config/home/sway_config $MYHOME/.config/sway/config
+    ln -sf ./config/home/alacritty_alacritty.yml $MYHOME/.config/alacritty/alacritty.yml
+    chown $ME:$ME $MYHOME/.profile
+    chown $ME:$ME $MYHOME/.config/sway/config
+    chown $ME:$ME $MYHOME/.config/alacritty/alacritty.yml
+    # Make esc+. to get last command parameter
+    echo -n 'SETUVAR fish_escape_delay_ms:300' >> $MYHOME/.config/fish/fish_variables
+    echo -n '' >> ~/.config/fish/fish_variables
+}
+
+
 ## Install Sway
 CMD1=$(apk info -vv | grep 'sway' | wc -l)
 CMD2=$(apk info -vv | grep 'bemenu' | wc -l)
@@ -106,9 +121,9 @@ if [[ $CMD1 -eq 0 ]] && [[ $CMD2 -eq 0 ]] && [[ $CMD3 -eq 0 ]] && [[ $CMD4 -eq 0
     addgroup $ME input
     setup-devd udev
     rc-update add seatd && rc-service seatd start
-    cp ./config/home/dot_profile /home/$ME/.profile
-    chown $ME:$ME /home/$ME/.profile
+    setup_env
     echo '##>> Install Sway successfully, Plese logout and login as normal user <<##'
 else
+    setup_env
     echo '##>> Sway is already Installed <<##'
 fi
