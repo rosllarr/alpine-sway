@@ -11,6 +11,7 @@
 ME=tie
 MY_HOME=/home/$ME
 HOME_CONF=$MY_HOME/.config
+HOME_LOCAL=$MY_HOME/.local
 GIT_HOME_CONF=$(pwd)/config/home
 
 
@@ -32,4 +33,14 @@ fi
 if [ -d "$HOME_CONF/fish" ]; then
     echo 'SETUVAR fish_escape_delay_ms:300' >> $MY_HOME/.config/fish/fish_variables
     echo '' >> ~/.config/fish/fish_variables
+fi
+
+
+# Setup flatpak repo
+if [ ! -s "$HOME_LOCAL/share/flatpak/repo/config" ]; then
+    mkdir -p $HOME_LOCAL/share/flatpak/repo/objects
+    mkdir -p $HOME_LOCAL/share/flatpak/repo/tmp
+    touch $HOME_LOCAL/share/flatpak/repo/config
+    echo -e "[core]\nrepo_version=1\nmode=bare-user-only" > $HOME_LOCAL/share/flatpak/repo/config
+    flatpak --user remote-add flathub https://flathub.org/repo/flathub.flatpakrepo
 fi
