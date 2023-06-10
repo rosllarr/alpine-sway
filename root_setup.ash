@@ -96,15 +96,17 @@ fi
 
 
 setup_env () {
-    ln -sf  ./config/home/dot_profile $MYHOME/.profile
-    ln -sf ./config/home/sway_config $MYHOME/.config/sway/config
-    ln -sf ./config/home/alacritty_alacritty.yml $MYHOME/.config/alacritty/alacritty.yml
+    mkdir -p $MYHOME/.config/{sway,alacritty}
+    chown -R ME:ME $MYHOME/.config
+    cp ./config/home/dot_profile $MYHOME/.profile
+    cp ./config/home/sway_config $MYHOME/.config/sway/config
+    cp ./config/home/alacritty_alacritty.yml $MYHOME/.config/alacritty/alacritty.yml
     chown $ME:$ME $MYHOME/.profile
     chown $ME:$ME $MYHOME/.config/sway/config
     chown $ME:$ME $MYHOME/.config/alacritty/alacritty.yml
     # Make esc+. to get last command parameter
-    echo -n 'SETUVAR fish_escape_delay_ms:300' >> $MYHOME/.config/fish/fish_variables
-    echo -n '' >> ~/.config/fish/fish_variables
+    # echo -n 'SETUVAR fish_escape_delay_ms:300' >> $MYHOME/.config/fish/fish_variables
+    # echo -n '' >> ~/.config/fish/fish_variables
 }
 
 
