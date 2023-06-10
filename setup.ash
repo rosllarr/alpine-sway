@@ -28,5 +28,5 @@ fi
 
 
 # Make esc+. to get last command parameter
-echo -n 'SETUVAR fish_escape_delay_ms:300' >> $MY_HOME/.config/fish/fish_variables
-echo -n '' >> ~/.config/fish/fish_variables
+echo 'SETUVAR fish_escape_delay_ms:300' >> $MY_HOME/.config/fish/fish_variables
+echo '' >> ~/.config/fish/fish_variables
