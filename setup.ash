@@ -8,11 +8,49 @@
 
 
 ###########################################
-# Manually requirement steps              #
+# Manually requirements                   #
 # - Connect WiFi with iwd manually        #
+# - Install btrfs for mount external_hdd  #
 # - Add ssh key                           #
 # - Install git and git clone repository  #
 ###########################################
+### Connect WiFi with iwd ######################################
+# rc-service wpa_supplicant stop                               #
+# rc-service iwd start                                         #
+# iwctl device list                                            #
+# iwctl station wlan0 scan && iwctl station wlan0 get-networks #
+# iwctl station wlan0 connect <SSID>                           #
+# rc-update add iwd boot && rc-update add dbus boot            #
+# cat <<EOT >> /etc/network/interfaces                         #
+# auto lo                                                      #
+# iface lo inet loopback                                       #
+#                                                              #
+# auto wlan0                                                   #
+# iface wlan0 inet dhcp                                        #
+#                                                              #
+# EOT                                                          #
+# rc-service networking restart                                #
+# ip a show wlan0                                              #
+# apk del wpa_supplicant                                       #
+################################################################
+### Install btrfs ##############################
+# apk add btrfs                                # 
+# cat <<EOT >> /etc/modprobe.d/alpinesway.conf #
+# btrfs                                        #
+#                                              #
+# EOT                                          #
+# modprobe btrfs
+################################################
+### Add ssh key #########################
+# mount -t btrfs /dev/sdX /mnt          #
+# mkdir ~/.ssh                          #
+# cp /mnt/id_rsa /mnt/id_rsa.pub ~/.ssh #
+# chmod 0600 ~/.ssh/id_*                #
+#########################################
+### Install git #############################################
+# apk add git                                               #
+# cd ~ && git clone git@github.com:rosllarr/alpine-sway.git #
+#############################################################
 
 
 ## Install doas
