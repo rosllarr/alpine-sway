@@ -47,6 +47,9 @@ if [ ! -s "$HOME_LOCAL/share/flatpak/repo/config" ]; then
     # Fix: https://github.com/flatpak/flatpak/issues/3585
     mkdir -p $HOME_LOCAL/share/flatpak/repo/objects
     mkdir -p $HOME_LOCAL/share/flatpak/repo/tmp
+    mkdir -p $HOME_LOCAL/share/flatpak/repo/refs
+    mkdir -p $HOME_LOCAL/share/flatpak/repo/refs/remotes
+    mkdir -p $HOME_LOCAL/share/flatpak/repo/refs/heads
     touch $HOME_LOCAL/share/flatpak/repo/config
     echo -e "[core]\nrepo_version=1\nmode=bare-user-only" > $HOME_LOCAL/share/flatpak/repo/config
     flatpak --user remote-add flathub https://flathub.org/repo/flathub.flatpakrepo
