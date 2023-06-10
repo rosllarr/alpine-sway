@@ -112,3 +112,4 @@ if [[ $CMD1 -eq 0 ]] && [[ $CMD2 -eq 0 ]] && [[ $CMD3 -eq 0 ]] && [[ $CMD4 -eq 0
     echo '##>> Install Sway successfully, Plese logout and login as normal user <<##'
 else
     echo '##>> Sway is already Installed <<##'
+fi
