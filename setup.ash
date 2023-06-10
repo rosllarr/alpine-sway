@@ -35,11 +35,12 @@
 ################################################################
 ### Install btrfs ##############################
 # apk add btrfs                                # 
-# cat <<EOT >> /etc/modprobe.d/alpinesway.conf #
+# cat <<EOT >> /etc/modules-load.d/btrfs.conf  #
 # btrfs                                        #
 #                                              #
 # EOT                                          #
-# modprobe btrfs
+# modprobe btrfs                               #
+# cat /proc/filesystems | grep btrfs           #
 ################################################
 ### Add ssh key #########################
 # mount -t btrfs /dev/sdX /mnt          #
