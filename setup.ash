@@ -7,8 +7,6 @@
 ####################################
 
 
-cd ~
-git clone git@github.com:rosllarr/alpine-sway.git
 ln -sf ./config/home/sway_config ~/.config/sway/config
 ln -sf ./config/home/alacritty_alacritty.yml ~/.config/alacritty/alacritty.yml
 
