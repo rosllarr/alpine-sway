@@ -15,26 +15,19 @@
 # - Install git and git clone repository  #
 ###########################################
 ### Connect WiFi with iwd ######################################
+# apk add iwd                                                  #
 # rc-service wpa_supplicant stop                               #
 # rc-service iwd start                                         #
 # iwctl device list                                            #
 # iwctl station wlan0 scan && iwctl station wlan0 get-networks #
 # iwctl station wlan0 connect <SSID>                           #
 # rc-update add iwd boot && rc-update add dbus boot            #
-# cat <<EOT >> /etc/network/interfaces                         #
-# auto lo                                                      #
-# iface lo inet loopback                                       #
-#                                                              #
-# auto wlan0                                                   #
-# iface wlan0 inet dhcp                                        #
-#                                                              #
-# EOT                                                          #
 # rc-service networking restart                                #
 # ip a show wlan0                                              #
 # apk del wpa_supplicant                                       #
 ################################################################
 ### Install btrfs ##############################
-# apk add btrfs                                # 
+# apk add btrfs-progs                          # 
 # cat <<EOT >> /etc/modules-load.d/btrfs.conf  #
 # btrfs                                        #
 #                                              #
@@ -91,7 +84,7 @@ CMD1=$(apk info -vv | grep 'mesa-dri-gallium' | wc -l)
 CMD2=$(apk info -vv | grep 'mesa-va-gallium' | wc -l)
 CMD3=$(apk info -vv | grep 'intel-media-driver' | wc -l)
 if [[ $CMD1 -eq 0 ]] && [[ $CMD2 -eq 0 ]] && [[ $CMD3 -eq 0 ]]; then
-	doas apk add mesa-dri-gallium mesa-va-gallium intel-media-driver
+	apk add mesa-dri-gallium mesa-va-gallium intel-media-driver
 	echo '##>> Install mesa-dri-gallium, mesa-va-gallium, intel-media-driver successfully <<##'
 else
 	echo '##>> mesa-dri-gallium, mesa-va-gallium, intel-media-driver are already installed <<##'

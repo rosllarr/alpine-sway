@@ -11,7 +11,7 @@
 - Use script to automate each steps
 
 ## Additional softwares
-btrfs: for mount my eternal_hdd
+btrfs-progs: for mount my eternal_hdd
 doas: openBSD replacement of sudo
 flatpak: for install GUI apps
 git: 
