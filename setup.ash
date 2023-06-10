@@ -44,6 +44,7 @@ fi
 
 # Setup flatpak repo
 if [ ! -s "$HOME_LOCAL/share/flatpak/repo/config" ]; then
+    # Fix: https://github.com/flatpak/flatpak/issues/3585
     mkdir -p $HOME_LOCAL/share/flatpak/repo/objects
     mkdir -p $HOME_LOCAL/share/flatpak/repo/tmp
     touch $HOME_LOCAL/share/flatpak/repo/config
