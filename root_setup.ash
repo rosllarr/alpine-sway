@@ -127,7 +127,7 @@ CMD3=$(apk info -vv | grep 'seatd' | wc -l)
 CMD4=$(apk info -vv | grep 'alacritty' | wc -l)
 CMD5=$(apk info -vv | grep 'fish' | wc -l)
 if [[ $CMD1 -eq 0 ]] && [[ $CMD2 -eq 0 ]] && [[ $CMD3 -eq 0 ]] && [[ $CMD4 -eq 0 ]] && [[ $CMD5 -eq 0 ]]; then
-    apk add seatd alacritty fish bemenu sway sway-doc swaylock swaylockd swaybg swayidle wl-clipboard font-dejavu
+    apk add seatd alacritty fish bemenu sway sway-doc xwayland swaylock swaylockd swaybg swayidle wl-clipboard font-dejavu
     addgroup $ME seat
     addgroup $ME video
     addgroup $ME input
