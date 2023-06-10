@@ -29,10 +29,12 @@ if [ ! -d "$HOME_CONF/omf" ]; then
 fi
 
 
-# Make esc+. to get last command parameter
 if [ -d "$HOME_CONF/fish" ]; then
-    echo 'SETUVAR fish_escape_delay_ms:300' >> $MY_HOME/.config/fish/fish_variables
+    # Make esc+. to get last command parameter
+    echo 'SETUVAR fish_escape_delay_ms:300' >> $HOME_CONF/fish/fish_variables
     echo '' >> ~/.config/fish/fish_variables
+    # Add fish aliases
+    ln -sf $GIT_HOME_CONF/fish_config.fish $HOME_CONF/fish/config.fish
 fi
 
 
