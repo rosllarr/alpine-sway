@@ -97,7 +97,7 @@ fi
 
 
 ## Install essential softwares
-apk add curl pciutils flatpak neovim
+apk add curl pciutils flatpak neovim python3
 
 
 setup_env () {
