@@ -61,7 +61,7 @@ output * bg /usr/share/backgrounds/sway/Sway_Wallpaper_Blue_1920x1080.png fill
         xkb_layout us,th
         xkb_variant ,tis
         xkb_options grp:alt_shift_toggle,caps:escape_shifted_capslock
-        xkb_numlock enable 
+        xkb_numlock enable
     }
 
 ### Key bindings
@@ -224,3 +224,5 @@ bar {
 }
 
 include /etc/sway/config.d/*
+
+xwayland disable
