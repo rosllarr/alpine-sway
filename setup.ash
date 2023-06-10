@@ -53,4 +53,11 @@ if [ ! -s "$HOME_LOCAL/share/flatpak/repo/config" ]; then
     touch $HOME_LOCAL/share/flatpak/repo/config
     echo -e "[core]\nrepo_version=1\nmode=bare-user-only" > $HOME_LOCAL/share/flatpak/repo/config
     flatpak --user remote-add flathub https://flathub.org/repo/flathub.flatpakrepo
+
+    # use for start app (flatpak run)
+    doas mkdir -p /var/lib/flatpak/repo/objects
+    doas mkdir -p /var/lib/flatpak/repo/tmp
+    doas mkdir -p /var/lib/flatpak/repo/refs
+    doas mkdir -p /var/lib/flatpak/repo/refs/remotes
+    doas mkdir -p /var/lib/flatpak/repo/refs/heads
 fi
