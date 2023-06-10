@@ -10,7 +10,7 @@
 # Global variables
 ME=tie
 MY_HOME=/home/$ME
-HOME_CONF=$MYHOME/.config
+HOME_CONF=$MY_HOME/.config
 GIT_HOME_CONF=$(pwd)/config/home
 
 
