@@ -112,8 +112,3 @@ if [[ $CMD1 -eq 0 ]] && [[ $CMD2 -eq 0 ]] && [[ $CMD3 -eq 0 ]] && [[ $CMD4 -eq 0
     echo '##>> Install Sway successfully, Plese logout and login as normal user <<##'
 else
     echo '##>> Sway is already Installed <<##'
-
-
-
-    echo -n 'SETUVAR fish_escape_delay_ms:300' >> ~/.config/fish/fish_variables
-    echo -n '' >> ~/.config/fish/fish_variables
