@@ -95,6 +95,10 @@ else
 fi
 
 
+## Install essential softwares
+apk add curl
+
+
 setup_env () {
     mkdir -p $MYHOME/.config/sway
     mkdir -p $MYHOME/.config/alacritty
