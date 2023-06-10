@@ -113,6 +113,9 @@ setup_env () {
         chown $ME:$ME $MYHOME/.profile
         chown $ME:$ME $MYHOME/.config/sway/config
         chown $ME:$ME $MYHOME/.config/alacritty/alacritty.yml
+        echo '##>> Setup environment successfully <<##'
+    else
+        echo '##>> Skip setup environment <<##'
     fi
 }
 
