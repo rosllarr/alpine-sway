@@ -97,11 +97,10 @@ fi
 CMD1=$(apk info -vv | grep 'sway' | wc -l)
 CMD2=$(apk info -vv | grep 'bemenu' | wc -l)
 CMD3=$(apk info -vv | grep 'seatd' | wc -l)
-CMD4=$(apk info -vv | grep 'eudev' | wc -l)
-CMD5=$(apk info -vv | grep 'alacritty' | wc -l)
-CMD6=$(apk info -vv | grep 'fish' | wc -l)
-if [[ $CMD1 -eq 0 ]] && [[ $CMD2 -eq 0 ]] && [[ $CMD3 -eq 0 ]] && [[ $CMD4 -eq 0 ]] && [[ $CMD5 -eq 0 ]] && [[ $CMD6 -eq 0 ]]; then
-    apk add eudev seatd alacritty fish bemenu sway sway-doc swaylock swaylockd swaybg swayidle wl-clipboard
+CMD4=$(apk info -vv | grep 'alacritty' | wc -l)
+CMD5=$(apk info -vv | grep 'fish' | wc -l)
+if [[ $CMD1 -eq 0 ]] && [[ $CMD2 -eq 0 ]] && [[ $CMD3 -eq 0 ]] && [[ $CMD4 -eq 0 ]] && [[ $CMD5 -eq 0 ]]; then
+    apk add seatd alacritty fish bemenu sway sway-doc swaylock swaylockd swaybg swayidle wl-clipboard
     addgroup $ME seat
     addgroup $ME video
     addgroup $ME input
