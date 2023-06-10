@@ -35,7 +35,7 @@ if [ -d "$HOME_CONF/fish" ]; then
     CMD=$(cat $HOME_CONF/fish/fish_variables | grep fish_escape_delay_ms:300 | wc -l)
     if [[ $CMD -ne 1 ]]; then
         echo 'SETUVAR fish_escape_delay_ms:300' >> $HOME_CONF/fish/fish_variables
-        echo '' >> ~/.config/fish/fish_variables
+        echo '' >> $HOME_CONF/fish/fish_variables
     fi
     # Add fish aliases
     ln -sf $GIT_HOME_CONF/fish_config.fish $HOME_CONF/fish/config.fish
