@@ -24,9 +24,12 @@ ln -sf $GIT_HOME_CONF/alacritty_alacritty.yml $HOME_CONF/alacritty/alacritty.yml
 if [ ! -d "$HOME_CONF/omf" ]; then
     echo '##>> Install oh-my-fish <<##'
     curl https://raw.githubusercontent.com/oh-my-fish/oh-my-fish/master/bin/install | fish
+    omf install bang-bang
 fi
 
 
 # Make esc+. to get last command parameter
-echo 'SETUVAR fish_escape_delay_ms:300' >> $MY_HOME/.config/fish/fish_variables
-echo '' >> ~/.config/fish/fish_variables
+if [ -d "$HOME_CONF/fish" ]; then
+    echo 'SETUVAR fish_escape_delay_ms:300' >> $MY_HOME/.config/fish/fish_variables
+    echo '' >> ~/.config/fish/fish_variables
+fi

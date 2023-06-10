@@ -51,6 +51,7 @@
 ME=tie
 MYHOME=/home/$ME
 
+
 ## Install doas
 CMD=$(apk info -vv | grep 'doas' | wc -l)
 if [[ $CMD -eq 0 ]]; then
@@ -96,21 +97,23 @@ fi
 
 
 ## Install essential softwares
-apk add curl
+apk add curl pciutils
 
 
 setup_env () {
-    mkdir -p $MYHOME/.config/sway
-    mkdir -p $MYHOME/.config/alacritty
-    cp -a ~/.ssh $MYHOME/.ssh
-    chown -R $ME:$ME $MYHOME/.config
-    chown -R $ME:$ME $MYHOME/.ssh
-    cp ./config/home/dot_profile $MYHOME/.profile
-    cp ./config/home/sway_config $MYHOME/.config/sway/config
-    cp ./config/home/alacritty_alacritty.yml $MYHOME/.config/alacritty/alacritty.yml
-    chown $ME:$ME $MYHOME/.profile
-    chown $ME:$ME $MYHOME/.config/sway/config
-    chown $ME:$ME $MYHOME/.config/alacritty/alacritty.yml
+    if [ ! -s "$MYHOME/.config/sway/config" ]; than
+        mkdir -p $MYHOME/.config/sway
+        mkdir -p $MYHOME/.config/alacritty
+        cp -a ~/.ssh $MYHOME/.ssh
+        chown -R $ME:$ME $MYHOME/.config
+        chown -R $ME:$ME $MYHOME/.ssh
+        cp ./config/home/dot_profile $MYHOME/.profile
+        cp ./config/home/sway_config $MYHOME/.config/sway/config
+        cp ./config/home/alacritty_alacritty.yml $MYHOME/.config/alacritty/alacritty.yml
+        chown $ME:$ME $MYHOME/.profile
+        chown $ME:$ME $MYHOME/.config/sway/config
+        chown $ME:$ME $MYHOME/.config/alacritty/alacritty.yml
+    fi
 }
 
 
