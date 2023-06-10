@@ -105,9 +105,6 @@ setup_env () {
     chown $ME:$ME $MYHOME/.profile
     chown $ME:$ME $MYHOME/.config/sway/config
     chown $ME:$ME $MYHOME/.config/alacritty/alacritty.yml
-    # Make esc+. to get last command parameter
-    # echo -n 'SETUVAR fish_escape_delay_ms:300' >> $MYHOME/.config/fish/fish_variables
-    # echo -n '' >> ~/.config/fish/fish_variables
 }
 
 
