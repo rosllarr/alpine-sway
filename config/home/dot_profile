@@ -6,4 +6,8 @@ if test -z "${XDG_RUNTIME_DIR}"; then
   fi
 fi
 
+if ! test -d "${HOME}/alpine-sway"; then
+  git clone git@github.com:rosllarr/alpine-sway.git
+fi
+
 dbus-run-session -- sway
