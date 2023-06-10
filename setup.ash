@@ -97,11 +97,15 @@ else
 	echo '##>> mesa-dri-gallium, mesa-va-gallium, intel-media-driver are already installed <<##'
 fi
 
-## Setup desktop
-# seatd enable at Default
-# dbus enable at Boot
+### Setup desktop
+## seatd enable at Default
+## dbus enable at Boot
+# doas apk update
+# doas apk add eudev
+# doas setup-devd udev
 
 # install fish
 # add support esc+period 
-echo -n 'SETUVAR fish_escape_delay_ms:300' >> ~/.config/fish/fish_variables
+# echo -n 'SETUVAR fish_escape_delay_ms:300' >> ~/.config/fish/fish_variables
+# echo -n '' >> ~/.config/fish/fish_variables
 

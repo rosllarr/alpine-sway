@@ -10,6 +10,18 @@
 - Use Vieb browser (in flakpak) as default browser
 - Use script to automate each steps
 
+## Additional softwares
+btrfs: for mount my eternal_hdd
+doas: openBSD replacement of sudo
+flatpak: for install GUI apps
+git: 
+mandoc:         man page
+mandoc-apropos: man page
+man-pages:      man page
+pciutils: tools for list pci devices
+
+
+
 
 ## Setup phrese after first boot
 > **_Remark:_** Following commands run in console as Root!
