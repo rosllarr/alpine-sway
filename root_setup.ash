@@ -27,7 +27,7 @@
 # apk del wpa_supplicant                                       #
 ################################################################
 ### Install btrfs ##############################
-# apk add btrfs-progs                          # 
+# apk add btrfs-progs                          #
 # cat <<EOT >> /etc/modules-load.d/btrfs.conf  #
 # btrfs                                        #
 #                                              #
@@ -46,6 +46,9 @@
 # cd ~ && git clone git@github.com:rosllarr/alpine-sway.git #
 #############################################################
 
+
+## Global variables
+ME=tie
 
 ## Install doas
 CMD=$(apk info -vv | grep 'doas' | wc -l)
@@ -90,15 +93,27 @@ else
 	echo '##>> mesa-dri-gallium, mesa-va-gallium, intel-media-driver are already installed <<##'
 fi
 
-### Setup desktop
-## seatd enable at Default
-## dbus enable at Boot
-# doas apk update
-# doas apk add eudev
-# doas setup-devd udev
+## Install Sway
+CMD1=$(apk info -vv | grep 'sway' | wc -l)
+CMD2=$(apk info -vv | grep 'bemenu' | wc -l)
+CMD3=$(apk info -vv | grep 'seatd' | wc -l)
+CMD4=$(apk info -vv | grep 'eudev' | wc -l)
+CMD5=$(apk info -vv | grep 'alacritty' | wc -l)
+CMD6=$(apk info -vv | grep 'fish' | wc -l)
+if [[ $CMD1 -eq 0 ]] && [[ $CMD2 -eq 0 ]] && [[ $CMD3 -eq 0 ]] && [[ $CMD4 -eq 0 ]] && [[ $CMD5 -eq 0 ]] && [[ $CMD6 -eq 0 ]]; then
+    apk add eudev seatd alacritty fish bemenu sway sway-doc swaylock swaylockd swaybg swayidle wl-clipboard
+    addgroup $ME seat
+    addgroup $ME video
+    addgroup $ME input
+    setup-devd udev
+    rc-update add seatd && rc-service seatd start
+    cp ./config/home/dot_profile /home/$ME/.profile
+    chown $ME:$ME /home/$ME/.profile
+    echo '##>> Install Sway successfully, Plese logout and login as normal user <<##'
+else
+    echo '##>> Sway is already Installed <<##'
 
-# install fish
-# add support esc+period 
-# echo -n 'SETUVAR fish_escape_delay_ms:300' >> ~/.config/fish/fish_variables
-# echo -n '' >> ~/.config/fish/fish_variables
 
+
+    echo -n 'SETUVAR fish_escape_delay_ms:300' >> ~/.config/fish/fish_variables
+    echo -n '' >> ~/.config/fish/fish_variables

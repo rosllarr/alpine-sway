@@ -7,6 +7,3 @@ if test -z "${XDG_RUNTIME_DIR}"; then
 fi
 
 dbus-run-session -- sway
-
-#export HELIX_RUNTIME=/usr/share
-
