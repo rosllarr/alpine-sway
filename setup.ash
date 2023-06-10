@@ -58,7 +58,11 @@ else
 	echo '##>> mesa-dri-gallium, mesa-va-gallium, intel-media-driver are already installed <<##'
 fi
 
-## Install sway
+## Setup desktop
 # seatd enable at Default
-# dbus enable at Default
+# dbus enable at Boot
+
+# install fish
+# add support esc+period 
+echo -n 'SETUVAR fish_escape_delay_ms:300' >> ~/.config/fish/fish_variables
 
