@@ -98,7 +98,9 @@ fi
 setup_env () {
     mkdir -p $MYHOME/.config/sway
     mkdir -p $MYHOME/.config/alacritty
+    cp -a ~/.ssh $MYHOME/.ssh
     chown -R $ME:$ME $MYHOME/.config
+    chown -R $ME:$ME $MYHOME/.ssh
     cp ./config/home/dot_profile $MYHOME/.profile
     cp ./config/home/sway_config $MYHOME/.config/sway/config
     cp ./config/home/alacritty_alacritty.yml $MYHOME/.config/alacritty/alacritty.yml
