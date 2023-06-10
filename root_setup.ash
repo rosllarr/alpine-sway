@@ -101,7 +101,7 @@ apk add curl pciutils
 
 
 setup_env () {
-    if [ ! -s "$MYHOME/.config/sway/config" ]; than
+    if [ ! -s "$MYHOME/.config/sway/config" ]; then
         mkdir -p $MYHOME/.config/sway
         mkdir -p $MYHOME/.config/alacritty
         cp -a ~/.ssh $MYHOME/.ssh
