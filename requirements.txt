@@ -1,0 +1,7 @@
+pyyaml
+
+# debugging tools
+yamllint
+yq
+shyaml
+ipython
